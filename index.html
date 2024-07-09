@@ -70,10 +70,8 @@
         const trafficjamMatrix = createTrafficjamMatrix(numLocations);
         const coordinates = generateCoordinates(numLocations);
 
-        const map = L.map('map').setView([coordinates[0][0], coordinates[0][1]], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(map);
+        const map = L.map('map').setView([50, 50], 13); // 초기 중심 좌표와 줌 레벨 설정
+        L.imageOverlay('path/to/your/image.png', [[0, 0], [100, 100]]).addTo(map); // 이미지 오버레이 추가
 
         coordinates.forEach((coord, index) => {
             L.marker([coord[0], coord[1]]).addTo(map)
